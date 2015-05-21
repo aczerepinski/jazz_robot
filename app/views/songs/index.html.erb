@@ -1,1 +1,8 @@
 <h1>So many songs!</h1>
+<br>
+<ul>
+<% @songs.each do |song| %>
+  <li><%= link_to song.name, song_path(song.id) %></li>
+<% end %>
+</ul>
+<%= link_to "Jazz Robot Home Page", root_path %>
