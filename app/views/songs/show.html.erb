@@ -1,3 +1,12 @@
 <h1><%= @song.name %></h1>
-<p><%= @song.chords %></p>
+<br>
+<div class="row">
+<% @song.chords_array.each do |measure| %>
+<span class="col-xs-3">
+<% measure.each do |chord| %>
+<%= chord %>
+<% end %>
+</span>
+<% end %>
+</div>
 <%= link_to "Back to Songs Index", songs_path %>
