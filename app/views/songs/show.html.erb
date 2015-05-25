@@ -1,12 +1,24 @@
 <h1><%= @song.name %></h1>
+<h2>Roman Numerals</h2>
 <br>
 <div class="row">
-<% @song.chords_array.each do |measure| %>
-<span class="col-xs-3">
-<% measure.each do |chord| %>
-<%= chord %>
-<% end %>
-</span>
-<% end %>
+  <% @song.chords_array.each do |measure| %>
+  <span class="col-xs-3">
+    <% measure.each do |chord| %>
+    <%= chord %>
+    <% end %>
+  </span>
+  <% end %>
+</div>
+<br>
+<h2>Transposed</h2>
+<div class="row">
+  <% @transposed_song.each do |measure| %>
+  <span class="col-xs-3">
+    <% measure.each do |chord| %>
+    <%= chord %>
+    <% end %>
+  </span>
+  <% end %>
 </div>
 <%= link_to "Back to Songs Index", songs_path %>

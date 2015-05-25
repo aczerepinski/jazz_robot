@@ -1,9 +1,18 @@
 class Song < ActiveRecord::Base
-
+  include Transposable
 
   def chords_array
     array = array_from_string
     group_by_measure(array)
+  end
+
+  def transpose(key)
+    song = array_from_string
+    transposed_song = []
+    song.each do | chord |
+      transposed_song.push(key[chord])
+    end
+    group_by_measure(transposed_song)
   end
 
   private
@@ -13,7 +22,9 @@ class Song < ActiveRecord::Base
   end
 
   def array_from_string
-    chords.split(",").map{|c|c.strip}
+    chords.split(",").map{|c|c.strip.gsub("nil", "")}
   end
+
+  
 
 end
