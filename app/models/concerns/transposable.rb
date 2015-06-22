@@ -1,132 +1,74 @@
 module Transposable
 
-    def key_of_c 
-     {
-      "IMaj7" => "CMaj7",
-      "I7" => "C7",
-      "II_of_II" => "Emin7",
-      "V7_of_II" => "A7",
-      "IImin7" => "Dmin7",
-      "II_of_III" => "F#min7b5",
-      "V7_of_III" => "B7",
-      "IIImin7" => "Emin7",
-      "II_of_IV" => "Gmin7",
-      "V7_of_IV" => "C7",
-      "IVMaj7" => "FMaj7",
-      "IV7" => "F7",
-      "II_of_V" => "Amin7",
-      "V7_of_V" => "D7",
-      "V7" => "G7",
-      "II_of_VI" => "Bmin7b5",
-      "V7_of_VI" => "E7",
-      "VImin7" => "Amin7",
-      "VIImin7b5" => "Bmin7b5",
-      "bIIMaj7" => "DbMaj7",
-      "IImin7b5" => "Dmin7b5",
-      "bIIIMaj7" => "EbMaj7",
-      "IVmin7" => "Fmin7",
-      "Vmin7" => "Gmin7",
-      "bVIMaj7" => "AbMaj7",
-      "bVII7" => "Bb7",
-      "sub_II" => "Abmin7",
-      "sub_V7" => "Db7",
-      "sub_II_of_II" => "Bbmin7",
-      "sub_V7_of_II" => "Eb7",
-      "sub_II_of_III" => "Cmin7",
-      "sub_V7_of_III" => "F7",
-      "sub_II_of_IV" => "Dbmin7",
-      "sub_V7_of_IV" => "Gb7",
-      "sub_II_of_V" => "Ebmin7",
-      "sub_V7_of_V" => "Ab7",
-      "sub_II_of_VI" => "Fmin7",
-      "sub_V7_of_VI" => "Bb7"
-      }
-    end
+  def self.keys
+    #["0", "1", "2", "3",  "4", "5", "6",  "7", "8",  "9", "10", "11"]  
+    ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"]
+  end
 
-    def key_of_f
-     {
-      "IMaj7" => "FMaj7",
-      "I7" => "F7",
-      "II_of_II" => "Amin7",
-      "V7_of_II" => "D7b",
-      "IImin7" => "Gmin7",
-      "II_of_III" => "Bmin7b5",
-      "V7_of_III" => "E7",
-      "IIImin7" => "Amin7",
-      "II_of_IV" => "Cmin7",
-      "V7_of_IV" => "F7",
-      "IVMaj7" => "BbMaj7",
-      "IV7" => "Bb7",
-      "II_of_V" => "Dmin7",
-      "V7_of_V" => "G7",
-      "V7" => "C7",
-      "II_of_VI" => "Emin7b5",
-      "V7_of_VI" => "A7",
-      "VImin7" => "Dmin7",
-      "VIImin7b5" => "Emin7b5",
-      "bIIMaj7" => "GbMaj7",
-      "IImin7b5" => "Gmin7b5",
-      "bIIIMaj7" => "AbMaj7",
-      "IVmin7" => "Bbmin7",
-      "Vmin7" => "Cmin7",
-      "bVIMaj7" => "DbMaj7",
-      "bVII7" => "Eb7",
-      "sub_II" => "Dbmin7",
-      "sub_V7" => "Gb7",
-      "sub_II_of_II" => "Ebmin7",
-      "sub_V7_of_II" => "Ab7",
-      "sub_II_of_III" => "Fmin7",
-      "sub_V7_of_III" => "Bb7",
-      "sub_II_of_IV" => "Cmin7",
-      "sub_V7_of_IV" => "B7",
-      "sub_II_of_V" => "Abmin7",
-      "sub_V7_of_V" => "Db7",
-      "sub_II_of_VI" => "Bbmin7",
-      "sub_V7_of_VI" => "Eb7"
-      }
+  #this method creates 12 "key of" transposition hashes when the module is included in an instantiated song object
+  #the metaprogramming syntax is somehwat obfuscated, but hopefully preferable to maintaining 12 separate key hashes
+  #todo: figure out how to display enharmonic spellings appropriately
+  def self.included(base)
+      keys_array = self.keys
+      keys_array.each_with_index do |key, i|
+      base.send(:define_method, "key_of_#{key.downcase}") do
+        {
+          #diatonic chords
+          "IMaj7" => "#{keys_array[i]}Maj7",
+          "IImin7" => "#{keys_array[(i+2)%12]}min7",
+          "IIImin7" => "#{keys_array[(i+4)%12]}min7",
+          "IVMaj7" => "#{keys_array[(i+5)%12]}Maj7",
+          "V7" => "#{keys_array[(i+7)%12]}7",
+          "VImin7" => "#{keys_array[(i+9)%12]}min7",
+          "VIImin7b5" => "#{keys_array[(i+11)%12]}min7",
+
+          #secondary dominants
+          "V7_of_II" => "#{keys_array[(i+9)%12]}7",
+          "V7_of_III" => "#{keys_array[(i+11)%12]}7",
+          "V7_of_IV" => "#{keys_array[i]}7",
+          "V7_of_V" => "#{keys_array[(i+2)%12]}7",
+          "V7_of_VI" => "#{keys_array[(i+4)%12]}7",
+
+          #substitute dominants
+          "sub_V7" => "#{keys_array[(i+1)%12]}7",
+          "sub_V7_of_II" => "#{keys_array[(i+3)%12]}7",
+          "sub_V7_of_III" => "#{keys_array[(i+5)%12]}7",
+          "sub_V7_of_IV" => "#{keys_array[(i+6)%12]}7",
+          "sub_V7_of_V" => "#{keys_array[(i+8)%12]}7",
+          "sub_V7_of_VI" => "#{keys_array[(i+1)%12]}7",
+
+          #secondary subdominants
+          "II_of_II" => "#{keys_array[(i+4)%12]}min7",
+          "II_of_III" => "#{keys_array[(i+6)%12]}min7b5",
+          "II_of_IV" => "#{keys_array[(i+7)%12]}min7",
+          "II_of_V" => "#{keys_array[(i+9)%12]}min7",
+          "II_of_VI" => "#{keys_array[(i+11)%12]}min7b5",
+
+          #substitute subdominants
+          "sub_II_of_II" => "#{keys_array[(i+10)%12]}min7",
+          "sub_II_of_III" => "#{keys_array[i]}min7",
+          "sub_II_of_IV" => "#{keys_array[(i+1)%12]}min7",
+          "sub_II_of_V" => "#{keys_array[(i+3)%12]}min7",
+          "sub_II_of_VI" => "#{keys_array[(i+5)%12]}min7b5",
+
+          #common modal interchange
+          "Imin7" => "#{keys_array[i]}min7",
+          "bIIMaj7" => "#{keys_array[(i+1)%12]}Maj7",
+          "bIIIMaj7" => "#{keys_array[(i+3)%12]}Maj7",
+          "IVmin7" => "#{keys_array[(i+5)%12]}min7",
+          "Vmin7" => "#{keys_array[(i+7)%12]}min7",
+          "bVIMaj7" => "#{keys_array[(i+8)%12]}Maj7",
+          "bVIIMaj7" => "#{keys_array[(i+10)%12]}Maj7",
+          "bVII7" => "#{keys_array[(i+10)%12]}7",
+
+          #blues
+          "I7" => "#{keys_array[i]}7",
+          "IV7" => "#{keys_array[(i+5)%12]}7"
+        }
+      end
     end
-    
-    def key_of_bb
-     {
-      "IMaj7" => "BbMaj7",
-      "I7" => "Bb7",
-      "II_of_II" => "Dmin7",
-      "V7_of_II" => "G7",
-      "IImin7" => "Cmin7",
-      "II_of_III" => "Emin7b5",
-      "V7_of_III" => "A7",
-      "IIImin7" => "Dmin7",
-      "II_of_IV" => "Fmin7",
-      "V7_of_IV" => "Bb7",
-      "IVMaj7" => "EbMaj7",
-      "IV7" => "Eb7",
-      "II_of_V" => "Gmin7",
-      "V7_of_V" => "C7",
-      "V7" => "F7",
-      "II_of_VI" => "Amin7b5",
-      "V7_of_VI" => "D7",
-      "VImin7" => "Gmin7",
-      "VIImin7b5" => "Amin7b5",
-      "bIIMaj7" => "BMaj7",
-      "IImin7b5" => "Cmin7b5",
-      "bIIIMaj7" => "DbMaj7",
-      "IVmin7" => "Ebmin7",
-      "Vmin7" => "Fmin7",
-      "bVIMaj7" => "GbMaj7",
-      "bVII7" => "Ab7",
-      "sub_II" => "Gbmin7",
-      "sub_V7" => "B7",
-      "sub_II_of_II" => "Abmin7",
-      "sub_V7_of_II" => "Db7",
-      "sub_II_of_III" => "Bbmin7",
-      "sub_V7_of_III" => "Eb7",
-      "sub_II_of_IV" => "Fmin7",
-      "sub_V7_of_IV" => "E7",
-      "sub_II_of_V" => "Dbmin7",
-      "sub_V7_of_V" => "Gb7",
-      "sub_II_of_VI" => "Ebmin7",
-      "sub_V7_of_VI" => "Ab7"
-      }
-    end
+  end
+
+
 
 end
