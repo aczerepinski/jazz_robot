@@ -1,0 +1,9 @@
+<div class="row chords">
+  <% @transposed_song.each do |measure| %>
+    <span class="col-xs-3">
+      <% measure.each do |chord| %>
+        <%= chord %>
+      <% end %>
+    </span>
+  <% end %>
+</div>

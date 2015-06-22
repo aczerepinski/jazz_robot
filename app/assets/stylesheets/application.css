@@ -14,3 +14,12 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+.chords {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.5em;
+  line-height: 2.5em;
+  margin: 0 2% 0 2%;
+}
