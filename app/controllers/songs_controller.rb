@@ -8,7 +8,7 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html do
         @song = Song.find(params[:id])
-        @key = @song.key_of_bb
+        @key = @song.key_of_f
         @transposed_song = @song.transpose(@key)
       end
       format.js do 

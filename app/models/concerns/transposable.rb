@@ -35,7 +35,7 @@ module Transposable
           "sub_V7_of_III" => "#{keys_array[(i+5)%12]}7",
           "sub_V7_of_IV" => "#{keys_array[(i+6)%12]}7",
           "sub_V7_of_V" => "#{keys_array[(i+8)%12]}7",
-          "sub_V7_of_VI" => "#{keys_array[(i+1)%12]}7",
+          "sub_V7_of_VI" => "#{keys_array[(i+10)%12]}7",
 
           #secondary subdominants
           "II_of_II" => "#{keys_array[(i+4)%12]}min7",
@@ -60,6 +60,16 @@ module Transposable
           "bVIMaj7" => "#{keys_array[(i+8)%12]}Maj7",
           "bVIIMaj7" => "#{keys_array[(i+10)%12]}Maj7",
           "bVII7" => "#{keys_array[(i+10)%12]}7",
+
+          #II & V of modal interchange tonics
+          "II_of_bII" => "#{keys_array[(i+3)%12]}min7",
+          "V7_of_bII" => "#{keys_array[(i+8)%12]}7",
+          "II_of_bIII" => "#{keys_array[(i+5)%12]}min7",
+          "V7_of_bIII" => "#{keys_array[(i+10)%12]}7",
+          "II_of_bVI" => "#{keys_array[(i+10)%12]}min7",
+          "V7_of_bVI" => "#{keys_array[(i+3)%12]}7",
+          "II_of_bVII" => "#{keys_array[i]}min7",
+          "V7_of_bVII" => "#{keys_array[(i+5)%12]}7",
 
           #blues
           "I7" => "#{keys_array[i]}7",
