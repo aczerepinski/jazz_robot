@@ -12,7 +12,7 @@ module Transposable
       keys_array = self.keys
       keys_array.each_with_index do |key, i|
       base.send(:define_method, "key_of_#{key.downcase}") do
-        {
+      chord_hash = {
           #diatonic chords
           "IMaj7" => "#{keys_array[i]}Maj7",
           "IImin7" => "#{keys_array[(i+2)%12]}min7",
@@ -75,10 +75,18 @@ module Transposable
           "I7" => "#{keys_array[i]}7",
           "IV7" => "#{keys_array[(i+5)%12]}7"
         }
+        transpose(chord_hash)
       end
     end
   end
 
-
+  def transpose(chord_hash)
+    original_chords = array_from_string
+    transposed_chords = []
+    original_chords.each do |chord|
+      transposed_chords << chord_hash[chord]
+    end
+    group_by_measure(transposed_chords)
+  end
 
 end
