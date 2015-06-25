@@ -75,18 +75,32 @@ module Transposable
           "I7" => "#{keys_array[i]}7",
           "IV7" => "#{keys_array[(i+5)%12]}7"
         }
-        transpose(chord_hash)
+        if ["A", "B", "D", "E", "G"].include?(key)
+          return transpose(chord_hash, "with sharps")
+        else
+          return transpose(chord_hash)
+        end
       end
     end
   end
 
-  def transpose(chord_hash)
+  def transpose(chord_hash, with_sharps=false)
     original_chords = array_from_string
     transposed_chords = []
     original_chords.each do |chord|
-      transposed_chords << chord_hash[chord]
+      if with_sharps
+        transposed_chords << sharpify(chord_hash[chord])
+      else  
+        transposed_chords << chord_hash[chord]
+      end
     end
     group_by_measure(transposed_chords)
+  end
+
+  def sharpify(chord)
+    if chord
+      chord.gsub("Db", "C#").gsub("Eb", "D#").gsub("Gb", "F#").gsub("Ab", "G#").gsub("Bb", "A#")
+    end
   end
 
 end
