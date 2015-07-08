@@ -6,6 +6,10 @@ class Song < ActiveRecord::Base
     group_by_measure(array)
   end
 
+  def prepare_json
+    group_by_measure(array_from_string)
+  end
+
   private
 
   def group_by_measure(array)
