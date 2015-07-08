@@ -14,6 +14,10 @@ class SongsController < ApplicationController
           @song_chords = @song.roman_numerals
         end
       end
+      format.json do
+        @song = Song.find(params[:id])
+        render 'song'
+      end
     end
   end
 

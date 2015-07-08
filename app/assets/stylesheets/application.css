@@ -15,11 +15,115 @@
  *= require_self
  */
 
-@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(http://fonts.googleapis.com/css?family=Montserrat|Titillium+Web);
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
 
 .chords {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 1.5em;
-  line-height: 2.5em;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.3em;
+  line-height: 2.25em;
   margin: 0 2% 0 2%;
 }
+
+.indent {
+  margin-left: 20px;
+}
+
+nav {
+  font-family: $titles;
+}
+
+.navbar {
+  background-color: #fff;
+  border-color: #AA6C39 ;
+  
+  a {
+    font-family: $title_font;
+    color: #000;
+  }
+}
+
+a {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+}
+a:hover {
+  color: #8080B3;
+  text-decoration: none;
+}
+
+.navbar-default {
+  .navbar-brand {
+    color: #000;
+    }
+  }
+
+body {
+  background-color: #343477;
+  color: #fff;
+  height: 100%;
+}
+
+.content {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.about {
+  margin: 40px 20px;
+}
+
+.btn {
+  border-radius: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-primary {
+  color: #343477;
+  background-color: #fff;
+  border-color: #1A1A59;
+}
+.btn-primary:hover {
+  background-color: #343477;
+  border-color: #1A1A59;
+}
+.btn-success {
+  background-color: #09093B;
+  border-color: #1A1A59;
+}
+.btn-success:hover {
+  background-color: #343477;
+  border-color: #1A1A59;
+}
+
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .chords {
+    font-size: 1em;
+    line-height: 2em;
+    margin: 0 1% 0 1%;
+  }
+
+  .indent {
+  margin-left: 15px;
+}
+}
+
+@media screen and (max-width: 600px) {
+  .chords {
+    font-size: 0.8em;
+    line-height: 2em;
+    margin: 0 1% 0 1%;
+  }
+  .indent {
+  margin-left: 5px;
+}
+}
+
+
