@@ -1,8 +1,12 @@
 <div class="row chords">
   <% @song_chords.each do |measure| %>
     <span class="col-xs-3">
-      <% measure.each do |chord| %>
-        <%= chord %>
+      <% measure.each.with_index do |chord, i| %>
+        <% if i == 1 %>
+          <span class="indent"><%= chord %></span>
+        <% else %>
+          <span><%= chord %></span>
+        <% end %>  
       <% end %>
     </span>
   <% end %>

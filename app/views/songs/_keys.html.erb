@@ -1,6 +1,6 @@
-<div id="keys">
+<div id="keys"1>
   <% ["A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab"].each do |key| %>
     <%= button_to "#{key}", song_path(@song.id), method: :get, class: "btn btn-primary col-xs-3 col-md-2", params: {key: "#{key.downcase}"} %>
   <% end %>
-  <%= button_to "Functional Analysis", song_path(@song.id), method: :get, class: "btn btn-success col-xs-12" %>
+  <%= button_to "FUNCTIONAL ANALYSIS", song_path(@song.id), method: :get, class: "btn btn-success col-xs-12" %>
 </div>
