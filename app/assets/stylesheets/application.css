@@ -41,7 +41,6 @@ nav {
   border-color: #AA6C39 ;
   
   a {
-    font-family: $title_font;
     color: #000;
   }
 }
