@@ -1,5 +1,9 @@
 class Song < ActiveRecord::Base
   include Transposable
+  has_many :song_genres
+  has_many :genres, through: :song_genres
+  belongs_to :difficulty
+  belongs_to :composer
 
   def roman_numerals
     array = format_roman_numerals

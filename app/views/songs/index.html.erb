@@ -1,9 +1,26 @@
 <div class="content">
-<h1>SONG INDEX</h1>
-<br>
-<ul class="list-unstyled">
-<% @songs.each do |song| %>
-  <li><%= link_to song.name, song_path(song.id) %></li>
-<% end %>
-</ul>
+
+  <!-- SONG NAVIGATION -->
+  <h1>SONG INDEX</h1>
+  <br>
+  <div class="song-index-container">
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation">COMPOSER</li>
+    <li role="presentation">GENRE</li>
+    <li role="presentation" class="active">DIFFICULTY</li>
+  </ul>
+  <!-- COPMOSER BUTTONS -->
+  <!-- GENRE BUTTONS -->
+  <!-- DIFFICULTY BUTTONS -->
+  <button class="btn btn-filter">EASY</button>
+  <button class="btn btn-filter">MEDIUM</button>
+  <button class="btn btn-filter">HARD</button>
+  </div>
+
+  <!-- SONG LIST -->
+  <ul class="list-unstyled">
+  <% @songs.each do |song| %>
+    <li><%= link_to song.name, song_path(song.id) %></li>
+  <% end %>
+  </ul>
 </div>
