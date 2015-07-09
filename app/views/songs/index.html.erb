@@ -12,15 +12,15 @@
   </ul>
   <!-- COPMOSER BUTTONS -->
   <% @composers.each do |composer| %>
-    <button class="btn btn-filter"><%= composer.last_name.upcase %></button>
+    <button class="btn btn-filter composer"><%= composer.last_name.upcase %></button>
   <% end %>
   <!-- GENRE BUTTONS -->
   <% @genres.each do |genre| %>
-    <button class="btn btn-filter"><%= genre.name.upcase %></button>
+    <button class="btn btn-filter genre hidden"><%= genre.name.upcase %></button>
   <% end %>
   <!-- DIFFICULTY BUTTONS -->
   <% @difficulties.each do |difficulty| %>
-    <button class="btn btn-filter"><%= difficulty.name.upcase %></button>
+    <button class="btn btn-filter difficulty hidden"><%= difficulty.name.upcase %></button>
   <% end %>
   </div>
 

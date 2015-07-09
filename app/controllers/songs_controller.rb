@@ -1,10 +1,10 @@
 class SongsController < ApplicationController
 
   def index
-    @songs = Song.all
-    @genres = Genre.all
+    @songs = Song.order(name: :asc)
+    @genres = Genre.order(name: :asc)
     @difficulties = Difficulty.all
-    @composers = Composer.all
+    @composers = Composer.order(last_name: :asc)
   end
 
   def show

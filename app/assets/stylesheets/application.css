@@ -94,6 +94,10 @@ body {
   border-color: #1A1A59;
 }
 
+.hidden {
+  display: none;
+}
+
 @media screen and (max-width: 800px) {
   h1 {
     font-size: 2em;
