@@ -5,3 +5,53 @@
 .chords span {
   height: 55px;
 }
+
+.song-index-container {
+  width: 60%;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px #000 solid;
+}
+
+.song-index-container h3 {
+  margin: 0;
+  color: #444;
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.nav-tabs {
+  
+}
+
+.filter-category a {
+  color: #666;
+}
+
+.song-index-container .filter-category.active a {
+  color: #000;
+}
+
+
+
+.nav-tabs li {
+
+  color: #444;
+  
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3em;
+  /*line-height: 2.25em;*/
+  margin: 10px;
+}
+
+.btn-filter {
+  background-color: #8080B3;
+  margin: 5px;
+  border: 1px #000 solid;
+}
+
+.btn-filter:hover {
+  color: #fff;
+  background-color: #343477;
+  margin: 5px;
+}

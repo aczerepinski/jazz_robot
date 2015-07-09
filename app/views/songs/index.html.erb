@@ -4,17 +4,24 @@
   <h1>SONG INDEX</h1>
   <br>
   <div class="song-index-container">
+  <h3>FILTER BY:</h3>
   <ul class="nav nav-tabs nav-justified">
-    <li role="presentation">COMPOSER</li>
-    <li role="presentation">GENRE</li>
-    <li role="presentation" class="active">DIFFICULTY</li>
+    <li role="presentation" class="filter-category active"><a href="#">COMPOSER</a></li>
+    <li role="presentation" class="filter-category"><a href="#">GENRE</a></li>
+    <li role="presentation" class="filter-category"><a href="#">DIFFICULTY</a></li>
   </ul>
   <!-- COPMOSER BUTTONS -->
+  <% @composers.each do |composer| %>
+    <button class="btn btn-filter"><%= composer.last_name.upcase %></button>
+  <% end %>
   <!-- GENRE BUTTONS -->
+  <% @genres.each do |genre| %>
+    <button class="btn btn-filter"><%= genre.name.upcase %></button>
+  <% end %>
   <!-- DIFFICULTY BUTTONS -->
-  <button class="btn btn-filter">EASY</button>
-  <button class="btn btn-filter">MEDIUM</button>
-  <button class="btn btn-filter">HARD</button>
+  <% @difficulties.each do |difficulty| %>
+    <button class="btn btn-filter"><%= difficulty.name.upcase %></button>
+  <% end %>
   </div>
 
   <!-- SONG LIST -->
