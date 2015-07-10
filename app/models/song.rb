@@ -14,6 +14,27 @@ class Song < ActiveRecord::Base
     group_by_measure(array_from_string)
   end
 
+  def genres_json
+    # json = "'["
+    # genres_array = self.genres.map{|g| g.name.downcase}
+    # i = 0
+    # loop do
+    #   if i == genres_array.length-1
+    #     json += ("'" + genres_array[i] + "'" + "]'")
+    #     return json
+    #   else
+    #     json += (genres_array[i] + ", ")
+    #     i += 1
+    #   end
+    # end
+    genres.map{|g|g.name.downcase}.to_json
+  end
+
+  def genres_string
+    genres.map{|g|g.name.downcase}.join(',')
+  end
+
+
   private
 
   def group_by_measure(array)

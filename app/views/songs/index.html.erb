@@ -4,30 +4,33 @@
   <h1>SONG INDEX</h1>
   <br>
   <div class="song-index-container">
-  <h3>FILTER BY:</h3>
+  <h3>FILTER SONGS BY:</h3>
   <ul class="nav nav-tabs nav-justified">
     <li role="presentation" class="filter-category active"><a href="#">COMPOSER</a></li>
     <li role="presentation" class="filter-category"><a href="#">GENRE</a></li>
     <li role="presentation" class="filter-category"><a href="#">DIFFICULTY</a></li>
   </ul>
+
   <!-- COPMOSER BUTTONS -->
   <% @composers.each do |composer| %>
-    <button class="btn btn-filter composer"><%= composer.last_name.upcase %></button>
+    <button class="btn btn-filter composer" data-category="composer"><%= composer.last_name.upcase %></button>
   <% end %>
+
   <!-- GENRE BUTTONS -->
   <% @genres.each do |genre| %>
-    <button class="btn btn-filter genre hidden"><%= genre.name.upcase %></button>
+    <button class="btn btn-filter genre hidden" data-category="genre"><%= genre.name.upcase %></button>
   <% end %>
+
   <!-- DIFFICULTY BUTTONS -->
   <% @difficulties.each do |difficulty| %>
-    <button class="btn btn-filter difficulty hidden"><%= difficulty.name.upcase %></button>
+    <button class="btn btn-filter difficulty hidden" data-category="difficulty"><%= difficulty.name.upcase %></button>
   <% end %>
   </div>
 
   <!-- SONG LIST -->
   <ul class="list-unstyled">
   <% @songs.each do |song| %>
-    <li><%= link_to song.name, song_path(song.id) %></li>
+    <li class="song-link" data-composer="<%= song.composer.last_name.downcase %>" data-difficulty="<%= song.difficulty.name.downcase %>" data-genre='<%= song.genres_string %>'><%= link_to song.name, song_path(song.id) %></li>
   <% end %>
   </ul>
 </div>
