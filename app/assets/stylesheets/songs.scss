@@ -20,27 +20,29 @@
 
 }
 
-.nav-tabs {
-  
+.songs-list {
+  margin-top: 15px;
 }
 
-.filter-category a {
+.song-link a{
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.1em;
+}
+
+.nav .filter-category a {
   color: #888;
+  padding: 5px 15px;
 }
 
 .song-index-container .filter-category.active a {
   color: #000;
 }
 
-
-
 .nav-tabs li {
-
-  color: #444;
-  
+  color: #444; 
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.3em;
-  /*line-height: 2.25em;*/
+  font-size: 1.2em;
+  line-height: 1em;
   margin: 10px;
 }
 
@@ -48,6 +50,7 @@
   background-color: #8080B3;
   margin: 5px;
   border: 1px #000 solid;
+  font-size: 0.9em;
 }
 
 .btn-filter:hover {

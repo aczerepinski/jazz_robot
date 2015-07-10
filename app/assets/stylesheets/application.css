@@ -15,10 +15,49 @@
  *= require_self
  */
 
+.center-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  width: 90%;
+  max-width: 1200px;
+}
 
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  height: 50px;
+}
+
+.footer p, .footer a {
+  color: #09093B;
+  font-family: 'Titillium Web', sans-serif;
+  margin: 15px 0;
+}
 
 h1 {
   font-family: 'Montserrat', sans-serif;
+  font-size: 2.25em;
+}
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+.page-title {
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .chords {
@@ -38,7 +77,29 @@ nav {
 
 .navbar {
   background-color: #fff;
-  border-color: #AA6C39 ;
+  border-color: #AA6C39;
+}
+
+.navbar li {
+  font-size: 1.4em;
+}
+
+.navbar-brand {
+  font-size: 2em;
+}
+
+.navbar-default .navbar-brand {
+  color: #09093B;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #343477;
+}
+.navbar-default .navbar-nav li a{
+  color: #09093B;
+}
+.navbar-default .navbar-nav li a:hover{
+  color: #343477;
 }
 
 a {
@@ -64,7 +125,6 @@ body {
 
 .content {
   text-align: center;
-  margin-top: 60px;
 }
 
 .about {
@@ -92,6 +152,13 @@ body {
 .btn-success:hover {
   background-color: #343477;
   border-color: #1A1A59;
+}
+
+.btn-white {
+  background: transparent;
+  background-color: transparent;
+  border: 2px solid #fff;
+  margin-top: 20px;
 }
 
 .hidden {
