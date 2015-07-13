@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
 
   def index
-    @songs = Song.order(name: :asc)
+    @songs = Song.order(name: :asc).includes(:genres, :difficulty, :composer)
     @genres = Genre.order(name: :asc)
     @difficulties = Difficulty.all
     @composers = Composer.order(last_name: :asc)

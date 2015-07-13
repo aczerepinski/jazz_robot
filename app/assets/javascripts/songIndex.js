@@ -4,7 +4,6 @@ $(document).on('ready page:load', function(){
   songButtonListener();
 });
 
-
 // This listens for clicks on the Composer/Genre/Difficulty nav tabs and reveals
 // buttons assosciated with those categories
 var categoryFilterListener = function() {
@@ -26,7 +25,6 @@ var hideButtons = function() {
 var showButtons = function(category) {
   $('.' + category).removeClass('hidden');
 }
-
 
 // This listens for clicks on the category specific buttons and filters songs
 // by category (i.e. medium difficulty, composed by Monk, etc)
