@@ -44,3 +44,13 @@
   color: #fff;
   }
 }
+
+.btn-next-level {
+  float: right;
+  background-color: #8080B3;
+  border: 1px #343477 solid;
+  &:hover {
+    background-color: #343477;
+  }
+  
+}
