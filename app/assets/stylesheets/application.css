@@ -55,6 +55,10 @@ h3 {
   line-height: 1.5em;
 }
 
+p {
+  font-family: 'Titillium Web', sans-serif;
+}
+
 .page-title {
   margin-top: 10px;
   margin-bottom: 15px;
@@ -123,6 +127,9 @@ body {
   height: 100%;
 }
 
+kbd {
+  background-color: #343477;
+}
 .content {
   text-align: center;
 }

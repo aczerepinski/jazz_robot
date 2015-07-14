@@ -197,3 +197,6 @@ s13 = Song.create(name: "A Foggy Day", chords: afd_chords, chords_per_measure: 2
 
 s14 = Song.create(name: "My Favorite Things", chords: mft_chords, chords_per_measure: 1, difficulty_id: 2, composer_id: 7)
   s14.genres << g2
+
+game1 = Game.create(name: "Diatonic Chords", keys: "A, D, G, C, F, Bb", chords: "IMaj7, IImin7, IIImin7, IVMaj7, V7, VImin7, VIImin7b5")
+game2 = Game.create(name: "Diatonic Chords Part 2", keys: "C, Db, D, Eb, E, F, Gb, G, Ab, A, Bb, B", chords: "IMaj7, IImin7, IIImin7, IVMaj7, V7, VImin7, VIImin7b5")

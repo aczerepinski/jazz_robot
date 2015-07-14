@@ -1,0 +1,18 @@
+<div class="text-center container">
+  <h1>LEVEL <%= @game.id  %>: <%= @game.name.upcase %></h1>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 game-board">
+    <p class="col-xs-6 text-left">QUESTION: <kbd><span id="questionNumber">1</span></kbd></p>
+    <p class="col-xs-6 text-right">Your score: <kbd><span id="score">0</span></kbd>
+    <p class="text-center col-xs-12">In the key of <span id="questionKey">C</span>, what chord functions as <span id="questionChord">IMaj7</span>?</p>
+   
+      <div class="game-answer">
+        <form action="">
+          <input type="text" name="answer" value="CMaj7" class="game-answer-input"><br>
+          <input type="submit" value="SUBMIT" class="game-answer-submit">  
+        </form>
+      </div><!-- /game-answer -->
+
+  </div><!-- /game-board -->
+</div><!-- /row -->
