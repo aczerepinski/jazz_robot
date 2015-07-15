@@ -11,6 +11,7 @@ var GameState = function(){
     init: function(){
       this.getData();
       this.setScore();
+      this.setLevel();
       this.play();
     },
     score: 0,
@@ -20,14 +21,18 @@ var GameState = function(){
         this.score = parseInt(query.substring(6));
       }
     },
+    setLevel: function(){
+      var level = window.location.pathname.substring(7);
+      this.level = parseInt(level);
+    },
     renderScore: function(){
       $('#score').text(this.score);
     },
     correctAnswer: function(){
-      this.score += 100;
+      this.score += (100 * this.level);
     },
     wrongAnswer: function(){
-      this.score -= 25;
+      this.score -= (25 * this.level);
     },
     question: 1,
     renderQuestionNumber: function(){
