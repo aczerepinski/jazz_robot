@@ -10,9 +10,16 @@ var GameState = function(){
   return {
     init: function(){
       this.getData();
+      this.setScore();
       this.play();
     },
     score: 0,
+    setScore: function(){
+      var query = window.location.search.substring(1);
+      if((query.length > 0) && (query.substring(0,6) === "score=")){
+        this.score = parseInt(query.substring(6));
+      }
+    },
     renderScore: function(){
       $('#score').text(this.score);
     },
@@ -60,11 +67,20 @@ var GameState = function(){
     answerIsCorrect: function(userAnswer){
       var i = this.question - 1;
       var correctAnswer = this.data[i][2].toLowerCase();
-      return userAnswer === correctAnswer;
+      var sharpAnswer = correctAnswer.replace('db','c#').replace('eb','d#').replace('gb','f#').replace('ab','g#').replace('bb', 'a#');
+      var flatAnswer = correctAnswer.replace('c#','db').replace('d#','eb').replace('f#','gb').replace('g#','ab').replace('a#', 'bb');
+      return ((userAnswer === correctAnswer) || (userAnswer === sharpAnswer) || (userAnswer === flatAnswer));
+    },
+    updateUrl: function(){
+      var self = this;
+      var url = $('.btn-next-level a').attr('href', function(i, url){
+        return url + '?score=' + self.score;
+      });
     },
     play: function(){
       if (this.question === 11){
         this.renderScore();
+        this.updateUrl();
         this.showNextLevelButton();
       }else if (this.question === 1){
         this.renderScore();
@@ -73,6 +89,7 @@ var GameState = function(){
         this.renderQuestionData();
         this.renderScore();
         this.renderQuestionNumber();
+        $('.game-answer-input').val('');
       }
     }
   };

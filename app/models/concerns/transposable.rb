@@ -20,7 +20,7 @@ module Transposable
           "IVMaj7" => "#{keys_array[(i+5)%12]}Maj7",
           "V7" => "#{keys_array[(i+7)%12]}7",
           "VImin7" => "#{keys_array[(i+9)%12]}min7",
-          "VIImin7b5" => "#{keys_array[(i+11)%12]}min7",
+          "VIImin7b5" => "#{keys_array[(i+11)%12]}min7b5",
 
           #secondary dominants
           "V7_of_II" => "#{keys_array[(i+9)%12]}7",

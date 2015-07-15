@@ -199,4 +199,8 @@ s14 = Song.create(name: "My Favorite Things", chords: mft_chords, chords_per_mea
   s14.genres << g2
 
 game1 = Game.create(name: "Diatonic Chords", keys: "A, D, G, C, F, Bb", chords: "IMaj7, IImin7, IIImin7, IVMaj7, V7, VImin7, VIImin7b5")
-game2 = Game.create(name: "Diatonic Chords Part 2", keys: "C, Db, D, Eb, E, F, Gb, G, Ab, A, Bb, B", chords: "IMaj7, IImin7, IIImin7, IVMaj7, V7, VImin7, VIImin7b5")
+game2 = Game.create(name: "Diatonic Chords Part 2", keys: "Eb, Ab, Db, Gb, B, E", chords: "IMaj7, IImin7, IIImin7, IVMaj7, V7, VImin7, VIImin7b5")
+game3 = Game.create(name: "Secondary Dominants", keys: "A, D, G, C, F, Bb", chords: "V7_of_II, V7_of_III, V7_of_IV, V7_of_V, V7_of_VI")
+game4 = Game.create(name: "Substitute Dominants", keys: "A, D, G, C, F, Bb", chords: "sub_V7, sub_V7_of_II, sub_V7_of_III, sub_V7_of_IV, sub_V7_of_V, sub_V7_of_VI")
+game5 = Game.create(name: "MOAR Dominants!!!", keys: "Eb, Ab, Db, Gb, B, E", chords: "V7_of_II, V7_of_III, V7_of_IV, V7_of_V, V7_of_VI, sub_V7, sub_V7_of_II, sub_V7_of_III, sub_V7_of_IV, sub_V7_of_V, sub_V7_of_VI")
+game6 = Game.create(name: "Modal Interchange", keys: "A, D, G, C, F, Bb", chords: "Imin7, bIIMaj7, bIIIMaj7, IVmin7, Vmin7, bVIMaj7, bVIIMaj7, bVII7")
