@@ -7,7 +7,6 @@ module Transposable
 
   #this method creates 12 "key of" transposition hashes when the module is included in an instantiated song object
   #the metaprogramming syntax is somehwat obfuscated, but hopefully preferable to maintaining 12 separate key hashes
-  #todo: figure out how to display enharmonic spellings appropriately
   def self.included(base)
       keys_array = self.keys
       keys_array.each_with_index do |key, i|
@@ -86,7 +85,6 @@ module Transposable
   end
 
   def transpose(chords_string, chord_hash, with_sharps=false)
-    # original_chords = array_from_string
     transposed_chords = []
     chords_string.each do |chord|
       if with_sharps
