@@ -22,6 +22,9 @@ class Song < ActiveRecord::Base
     genres.map{|g|g.name.downcase}.join(',')
   end
 
+  def jam_chords
+    array_from_string.reject{|c| c == ""}.to_json
+  end
 
   private
 

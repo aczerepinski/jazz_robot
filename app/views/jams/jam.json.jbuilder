@@ -1,0 +1,1 @@
+json.chords @song.jam_chords
